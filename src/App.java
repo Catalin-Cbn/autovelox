@@ -10,6 +10,9 @@ public class App {
         String plate;
         String ancora;
 
+        
+    Map<String,Integer> importo = new LinkedHashMap<>();
+    
     do { System.out.println("Inserisci il limite di velocità: ");
     speedLim = sc.nextInt();
     sc.nextLine();
@@ -29,7 +32,7 @@ public class App {
     sanzioni.put(999, 1000);
 
     eccesso = yourSpeed - speedLim;
-    Map<String,Integer> importo = new LinkedHashMap<>();
+    
     for (Integer n : sanzioni.keySet()) {
         if (n >=eccesso) {
             multa = sanzioni.get(n);
@@ -45,7 +48,7 @@ public class App {
         }
         
     }
-    System.out.println(importo.toString());
+    
     System.out.println("Vuoi effettuare una nuova rilevazione? s/n");
     ancora=sc.nextLine();
 
@@ -56,7 +59,7 @@ public class App {
 
 
     System.out.println("Rilevazione terminata!");
-    
+    System.out.println(importo.toString());
 
 
 
